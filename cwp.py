@@ -83,10 +83,7 @@ st.table(summary)
 
 
 '''I have created a list that will hold the names of the aspects for which the dataset has information
-available in the dataset. Мозг умер... Это помоэт ог буду. Проят ли SOSиски о помощи? Почему самолёты летят, а 
-машины не едят? Почему сырок не сырой? Такой же вопрос к сыру. Почему ручка, а не ножка? Является ли Лохнесское 
-чудовище лохом? Докажи! Почему садовые вилы называют вилами, если они не вилки и ими не едят макароны? Почему банка 
-икры не открывается самостоятельно? Если агуша произогла от слова агу, то от какого слова произошла фруто няня?
+available in the dataset.
 '''
 
 
@@ -119,11 +116,11 @@ main_inf = pd.DataFrame({'Statistics': main_values.keys(), 'Figures': main_value
 st.write(main_inf)
 
 
-'''Мы чётко видим, что студентов испытывающих довольно высокий уровень стресса довольно много.
-Похожий вывод можно сделать и об уровне стресса, который оценивают как "высокий" '''+str(depressed)+''' из 
-''' + str(students) + ''' студентов'''
+'''We can clearly see that there are quite a lot of students experiencing a rather high level of stress.
+A similar conclusion can be made about the level of stress, which is assessed as "high"." '''+str(depressed)+''' from 
+''' + str(students) + ''' students'''
 
-'''Давайте посмотрим на средние значения каждого из факторов:'''
+'''Let's take a look at the averages of each factor:'''
 #------------------------------------------------------------------------------------------
 #PLOT1
 
@@ -158,9 +155,10 @@ types_of_factors0 = pd.DataFrame(list(types_of_factors0.items()), columns=['Type
 st.write(types_of_factors0)
 
 
+'''In order to understand from what factors the level of stress of trainees depends on, let's look at the number of negative 
+reports, categorizing them by factors:'''
 
-'''Для того, чтобы понять от каких факторов засисит уровень стресса обучающихся, посмотрим на количество негативных 
-reports, разделив их по факторам'''
+
 factors = ['Psychological', 'Physiological', 'Environmental', 'Academic', 'Social']
 
 negative = [
@@ -185,9 +183,9 @@ st.pyplot(plt)
 
 #PLOT3-----------------------------------------------------------------------------------------------
 
-'''Так как наибольшее количество negative reports относятся к academic factor, исследуем academic
-reports более подробно. В добавление, мы знаем, что каждая из оценок академических факторов является значением
-от 0 до 5, поэтому мы можем посмотреть на распределение ответов студентов'''
+'''Since the largest number of negative reports relate to the academic factor, let us examine academic
+reports in more detail. In addition, we know that each of the academic factor scores is a value
+between 0 and 5, so we can look at the distribution of student responses'''
 labels = ['0 level', '1 level', '2 level', '3 level', '4 level', '5 level']
 plot3 = sub.make_subplots(2, 2, specs=[[{'type':'domain'}, {'type':'domain'}], [{'type':'domain'}, {'type':'domain'}]])
 plot3.add_trace(pg.Pie(labels=labels, values=df['academic_performance'].value_counts().values,
@@ -201,12 +199,12 @@ plot3.add_trace(pg.Pie(labels=labels, values=df['teacher_student_relationship'].
 plot3.update_layout(title_text='Academic factors')
 st.write(plot3)
 
-'''Наиболее заметно по графику, что довольно большой процент студентов оценивают каждый из показателей, связанных с
-учёбой на довольно низком уровне. Оценка "0" занимает самую большую часть кругового графика.'''
+'''Most noticeable from the graph is that quite a large percentage of students rate each of the indicators related to the
+to learning at a rather low level. Assessment "0" occupies the largest part of the circular graph.'''
 
 #PLOT4-----------------------------------------------------------------------------------------
 
-'''Посмотрим на то, насколько тот или иной фактор влияет на уровень стресса студентов.'''
+'''Let's take a look at how much a particular factor affects students' stress levels.'''
 
 
 
@@ -218,9 +216,9 @@ plot3 = sns.heatmap(plot_correlations.iloc[:-1, -1:], annot=True, cmap=colors)
 st.pyplot(fig)
 
 
-'''Как вы можете заметить, больше всего на уровень стресса влияет bullying(social factor), anxiety level and depression
-(psycological factors),future career concerns(academic factor). Так как данные показатели относятся к абсолютно разным 
-типам факторов, давайте попробуем выявить какой-то тренд или зависимость,
+'''As you can see, bullying (social factor), anxiety level and depression (psycological factors), future career concerns (academic factor), etc. have the greatest impact on stress level.
+(psycological factors),future career concerns(academic factor). Since these indicators relate to completely different 
+types of factors, let's try to identify some kind of trend or correlation.
 '''
 
 '''Let us look at each type individually'''
@@ -273,8 +271,8 @@ plot_headache = px.bar(df, x='breathing_problem', y='headache', facet_col="stres
                        title='Dependence of stress levels, headaches and breathing problems')
 st.write(plot_headache)
 
-'''Итак, как видно по графику, те, кто имеют высокий уровень стресса, оценвиают головную боль
-и проблемы с дыханием более, чем на половину'''
+'''So, as you can see from the graph, those with high stress levels estimate headaches
+and respiratory problems by more than half.'''
 
 
 
@@ -335,10 +333,10 @@ when making hypotheses. First, let's look at the number of people who rate their
 st.header('New Data')
 
 
-'''Так как уровень депрессии значительно влияет на уровень стресса, давайте попробуем прослежить взаимосвязь.
-Для этого добавим в наш датасет колонку "depression_experience", значения которой будут являться "0" и "1" в 
-зависимости от значения, которое принимает уровень стресса. Если студент оценивает свой уровень депрессии более, чем на 12,
-будем считать, что на данный момент обучащийся нахожится в состоянии депрессии'''
+'''Since the level of depression significantly affects the level of stress, let's try to trace the relationship.
+To do this, let's add a column "depression_experience" to our dataset, whose values will be "0" and "1" depending on the value that the stress level takes 
+depending on the value that the stress level takes on. If a student rates their level of depression at more than 12,
+we will consider that at the moment the student is in a state of depression'''
 
 df['depression_experience'] = np.where(df['depression'] > 12, 1, 0).astype(int)
 
@@ -346,26 +344,26 @@ students_with_depression = (df['depression_experience'].sum() / students) * 100
 st.metric(label="Percentage of students experiencing depression", value=students_with_depression.round(1))
 
 
-'''Так же, на основании  столбца "безопасность" создадим новую колонку. Так как в столбцах "безопасность" и "шум"
-элементы принимают значения от 0 до 5, я буду считать, что студент чувствует себя не в безопасности, если он оценивает
-уровень своей безопасности меньше, чем на 3, а уровень шума больше, чем на 3'''
+'''Also, based on the "safety" column, we will create a new column. Since the "safety" and "noise" columns
+items take values from 0 to 5, I'll assume that a student feels unsafe if he or she rates
+their safety level less than 3 and their noise level more than 3'''
 df['feel_unsafe'] = ((df['safety'] < 3) & (df['noise_level'] > 3)).astype(int)
 
 students_feel_unsafe = (df['feel_unsafe'].sum() / students) * 100
 st.metric(label="Percentage of students feeling unsafe", value=students_feel_unsafe.round(1))
 
-'''Посмотрим на обавленные данные:'''
+'''Let's take a look at the added data:'''
 
 st.table(df[['depression_experience', 'feel_unsafe']].head())
 
 
-'''Предположим, что уровень стресса студентов зависит от психологических факторов таких как: anxiety level, self esteem,
+'''Suppose that students' stress level depends on psychological factors such as: anxiety level, self esteem,
  depression and mental health history'''
 
-'''Выдвинем предположение, котрое будет заключаться в следующем:'''
-st.subheader('''Уровень стресса обучающихся возрастает быстрее у тех, кто чувствует себя не в безопасности''')
-'''Также, так как уровень стресса во многом зависит от показателей беспокойства и депрессии, проверим корректность выдвинутой 
-гипотезы на графике засисимости беспокойства, депрессии и стресса'''
+'''Let's make the following assumption:'''
+st.subheader('''Learners' stress levels increase faster in those who feel insecure''')
+'''Also, since the level of stress largely depends on the indicators of anxiety and depression, let's check the correctness of the hypothesis on the graph of anxiety, depression and stress. 
+hypothesis on the graph of dependence of anxiety, depression and stress'''
 
 
 plot_hypothesis = sub.make_subplots(rows=2, cols=2, subplot_titles=('Not depressed','Depressed', 'Feel safe',
@@ -402,13 +400,6 @@ plot_hypothesis.add_trace(trace_plot_hyp2_2, row=2, col=2)
 plot_hypothesis.update_layout(title='Сorrelation between depression and anxiety of a student', showlegend=True)
 st.plotly_chart(plot_hypothesis, theme=None)
 
-'''Наше предположение верно:
-на графике чётко прослеживается тренд. Студенты, испытывающие депрессию и ощущающие себя 
-не в безопасности испытывают более высокий уровень стресса.'''
-
-
-#----------------------------------------------------------------------------
-
-
-#---------------------------------------------------------------------------------
-
+'''Our assumption is correct:
+the graph clearly shows a trend. Students who are depressed and feel insecure 
+and feeling insecure experience higher levels of stress.'''
