@@ -7,8 +7,6 @@ import pandas as pd
 import plotly.subplots as sub
 import numpy as np
 from tabulate import tabulate
-import dash as dash
-from dash import dcc
 import dash_html_components as html
 import plotly.subplots as sp
 import matplotlib.colors as colors
