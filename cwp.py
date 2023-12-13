@@ -216,9 +216,8 @@ plot3 = sns.heatmap(plot_correlations.iloc[:-1, -1:], annot=True, cmap=colors)
 st.pyplot(fig)
 
 
-'''As you can see, bullying (social factor), anxiety level and depression (psycological factors), future career concerns (academic factor), etc. have the greatest impact on stress level.
-(psycological factors),future career concerns(academic factor). Since these indicators relate to completely different 
-types of factors, let's try to identify some kind of trend or correlation.
+'''As you can see, bullying (social factor), anxiety level and depression (psycological factors), future career concerns (academic factor), etc. have the greatest impact on stress level. Since these indicators relate to completely different 
+types of factors, let's try to identify some kind of trends.
 '''
 
 '''Let us look at each type individually'''
@@ -334,8 +333,7 @@ st.header('New Data')
 
 
 '''Since the level of depression significantly affects the level of stress, let's try to trace the relationship.
-To do this, let's add a column "depression_experience" to our dataset, whose values will be "0" and "1" depending on the value that the stress level takes 
-depending on the value that the stress level takes on. If a student rates their level of depression at more than 12,
+To do this, let's add a column "depression_experience" to our dataset, whose values will be "0" and "1" depending on the value that the stress level takes on. If a student rates their level of depression at more than 12,
 we will consider that at the moment the student is in a state of depression'''
 
 df['depression_experience'] = np.where(df['depression'] > 12, 1, 0).astype(int)
@@ -361,9 +359,11 @@ st.table(df[['depression_experience', 'feel_unsafe']].head())
  depression and mental health history'''
 
 '''Let's make the following assumption:'''
-st.subheader('''Learners' stress levels increase faster in those who feel insecure''')
-'''Also, since the level of stress largely depends on the indicators of anxiety and depression, let's check the correctness of the hypothesis on the graph of anxiety, depression and stress. 
-hypothesis on the graph of dependence of anxiety, depression and stress'''
+st.subheader('''Those students who experience a depression or feel unsafe have higher level of stress''')
+'''Also, since the level of stress largely depends on the indicators of anxiety and self esteem, let's check the correctness of the hypothesis on the graph
+that shows the dependence between anxiety level and self esteem of different groups of students (those who experience depression and not; those who feel unsafe and not).
+X axis represents the level of self esteem, Y axis shows the level of anxiety level. The color illustrates the level of a stress.
+'''
 
 
 plot_hypothesis = sub.make_subplots(rows=2, cols=2, subplot_titles=('Not depressed','Depressed', 'Feel safe',
@@ -401,5 +401,4 @@ plot_hypothesis.update_layout(title='Сorrelation between depression and anxiety
 st.plotly_chart(plot_hypothesis, theme=None)
 
 '''Our assumption is correct:
-the graph clearly shows a trend. Students who are depressed and feel insecure 
-and feeling insecure experience higher levels of stress.'''
+the graph clearly shows a trend. Students who are depressed or feel insecure experience higher levels of stress.'''
