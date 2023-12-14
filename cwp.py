@@ -388,15 +388,16 @@ color='stress_level')
 trace_plot_hyp2_2 = plot_hyp2_2['data'][0]
 plot_hypothesis.add_trace(trace_plot_hyp2_2, row=2, col=2)
 
-plot_hypothesis.update_yaxes(title_text="yaxis 1 title", row=1, col=1)
-plot_hypothesis.update_yaxes(title_text="yaxis 2 title", row=1, col=2)
-plot_hypothesis.update_yaxes(title_text="yaxis 3 title", row=2, col=1)
-plot_hypothesis.update_yaxes(title_text="yaxis 4 title", row=2, col=2)
+plot_hypothesis.update_xaxes(title_text="self esteem", row=1, col=1)
+plot_hypothesis.update_xaxes(title_text="self esteem", row=1, col=2)
+plot_hypothesis.update_xaxes(title_text="self esteem", row=2, col=1)
+plot_hypothesis.update_xaxes(title_text="self esteem", row=2, col=2)
 
-plot_hypothesis.update_xaxes(title_text="xaxis 1 title", row=1, col=1)
-plot_hypothesis.update_xaxes(title_text="xaxis 2 title", row=1, col=2)
-plot_hypothesis.update_xaxes(title_text="xaxis 3 title", row=2, col=1)
-plot_hypothesis.update_xaxes(title_text="xaxis 4 title", row=2, col=2)
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=1, col=1)
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=1, col=2)
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=2, col=1)
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=2, col=2)
+
 
 plot_hypothesis.update_layout(height=800, width=1000, title='Сorrelation between depression and anxiety of a student', showlegend=True)
 st.plotly_chart(plot_hypothesis, theme=None)
