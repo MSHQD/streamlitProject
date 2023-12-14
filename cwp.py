@@ -367,7 +367,7 @@ X axis represents the level of self esteem, Y axis shows the level of anxiety le
 
 
 plot_hypothesis = sub.make_subplots(rows=2, cols=2, subplot_titles=('Not depressed','Depressed', 'Feel safe',
-'Feel unsafe'), shared_yaxes=True)
+'Feel unsafe'), shared_yaxes=True, color = 'stress_level')
 plot_hyp1_1 = px.scatter(df[df['depression_experience'] == 0], x='self_esteem', y='anxiety_level', trendline='lowess',
 color='stress_level')
 trace_plot_hyp1_1 = plot_hyp1_1['data'][0]
@@ -393,10 +393,7 @@ plot_hypothesis.update_xaxes(title_text="self esteem", row=1, col=2)
 plot_hypothesis.update_xaxes(title_text="self esteem", row=2, col=1)
 plot_hypothesis.update_xaxes(title_text="self esteem", row=2, col=2)
 
-plot_hypothesis.update_yaxes(title_text="anxiety level", row=1, col=1)
-plot_hypothesis.update_yaxes(title_text="anxiety level", row=1, col=2)
-plot_hypothesis.update_yaxes(title_text="anxiety level", row=2, col=1)
-plot_hypothesis.update_yaxes(title_text="anxiety level", row=2, col=2)
+
 
 
 plot_hypothesis.update_layout(height=800, width=1000, title='Сorrelation between depression and anxiety of a student', showlegend=True)
