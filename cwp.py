@@ -370,29 +370,21 @@ plot_hypothesis = sub.make_subplots(rows=2, cols=2, subplot_titles=('Not depress
 'Feel unsafe'), shared_yaxes=True)
 plot_hyp1_1 = px.scatter(df[df['depression_experience'] == 0], x='self_esteem', y='anxiety_level', trendline='lowess',
 color='stress_level')
-plot_hyp1_1.update_xaxes(title_text='self_esteem')
-plot_hyp1_1.update_yaxes(title_text='anxiety_level')
 trace_plot_hyp1_1 = plot_hyp1_1['data'][0]
 plot_hypothesis.add_trace(trace_plot_hyp1_1, row=1, col=1)
 
 plot_hyp1_2 = px.scatter(df[df['depression_experience'] == 1], x='self_esteem', y='anxiety_level', trendline='lowess',
 color='stress_level')
-plot_hyp1_2.update_xaxes(title_text='self_esteem')
-plot_hyp1_2.update_yaxes(title_text='anxiety_level')
 trace_plot_hyp1_2 = plot_hyp1_2['data'][0]
 plot_hypothesis.add_trace(trace_plot_hyp1_2, row=1, col=2)
 
 plot_hyp2_1 = px.scatter(df[df['feel_unsafe'] == 0], x='self_esteem', y='anxiety_level', trendline='lowess',
 color='stress_level')
-plot_hyp2_1.update_xaxes(title_text='self_esteem')
-plot_hyp2_1.update_yaxes(title_text='anxiety_level')
 trace_plot_hyp2_1 = plot_hyp2_1['data'][0]
 plot_hypothesis.add_trace(trace_plot_hyp2_1, row=2, col=1)
 
 plot_hyp2_2 = px.scatter(df[df['feel_unsafe'] == 1], x='self_esteem', y='anxiety_level', trendline='lowess',
 color='stress_level')
-plot_hyp2_2.update_xaxes(title_text='self_esteem')
-plot_hyp2_2.update_yaxes(title_text='anxiety_level')
 trace_plot_hyp2_2 = plot_hyp2_2['data'][0]
 plot_hypothesis.add_trace(trace_plot_hyp2_2, row=2, col=2)
 
