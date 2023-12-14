@@ -393,7 +393,10 @@ plot_hypothesis.update_xaxes(title_text="self esteem", row=1, col=2)
 plot_hypothesis.update_xaxes(title_text="self esteem", row=2, col=1)
 plot_hypothesis.update_xaxes(title_text="self esteem", row=2, col=2)
 
-
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=1, col=1)
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=1, col=2)
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=2, col=1)
+plot_hypothesis.update_yaxes(title_text="anxiety level", row=2, col=2)
 
 
 plot_hypothesis.update_layout(height=800, width=1000, title='Сorrelation between depression and anxiety of a student', showlegend=True)
