@@ -43,7 +43,7 @@ for unnecessary information such as undefined values and inaccurate values.''')
 
 
 count_null = df.isnull().sum(axis=0)
-st.code('count_null = df.isnull().sum(axis=0)')
+st.code('count_null = df.isnull().sum()')
 st.metric(label="NaN", value=count_null.sum())
 
 
