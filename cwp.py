@@ -397,7 +397,7 @@ trace_plot_hyp2_2 = plot_hyp2_2['data'][0]
 plot_hypothesis.add_trace(trace_plot_hyp2_2, row=2, col=2)
 
 
-plot_hypothesis.update_layout(height=800, widht=1000, title='Сorrelation between depression and anxiety of a student', showlegend=True)
+plot_hypothesis.update_layout(height=800, width=1000, title='Сorrelation between depression and anxiety of a student', showlegend=True)
 st.plotly_chart(plot_hypothesis, theme=None)
 
 '''Our assumption is correct:
